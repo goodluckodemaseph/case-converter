@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+            <title>note</title>
+       <style>
+           body{background: yellow;}   
+    #pop{
+        box-shadow: 7px 7px 7px 7px rgba(50,50,50,0.5);
+        margin-top: 3%;
+        margin-left: 27%;
+        margin-right: 50%;
+        margin-bottom: 5%;
+        width: 50%;
+        border-radius: 10px;
+        border-style: none;
+        padding-left: 1%;
+        padding-right: 1%;
+        padding-top: 2%;
+        padding-bottom: 1%;
+        max-width: 50%;
+        position: absolute;
+        visibility: hidden;
+         
+    }
+    #pop.open{
+         z-index: 10;
+          visibility: visible;
+    }
+    h1{ 
+        z-index: 10;
+        margin-top: 15%;
+        margin-left: 38%
+           }
+     #button{
+          z-index: 2;
+         border-radius: 20px;
+         border-style: double;
+         background-color: black;
+         color: aliceblue;
+         padding: 1%;
+         margin-top: 5%;
+         margin-left: 47%;
+        cursor: pointer;
+         border-style: none;
+         }
+     #button:hover{
+                    background-color: green;
+                    border-style: none;
+           }      
+    #case{
+         padding: 2%;
+         margin-left: 20%;
+           }
+    #LC{
+         z-index: 2;
+        border-radius: 25px;
+               border-style: double;
+         background-color: black;
+         color: aliceblue;
+         padding: 1%;
+         margin-top: %;
+       cursor: pointer;
+           }
+    #UC{
+         z-index: 2;
+        border-radius: 20px;
+               border-style: double;
+         background-color: black;
+         color: aliceblue;
+         padding: 1%;
+         margin-top: %;
+        cursor: pointer;
+           } 
+    #TC{
+         z-index: 2;
+        border-radius: 20px;
+               border-style: double;
+         background-color: black;
+         color: aliceblue;
+         padding: 1%;
+         margin-top: %;
+        cursor: pointer;
+           }
+    #SC{
+         z-index: 2;
+        border-radius: 20px;
+               border-style: double;
+         background-color: black;
+         color: aliceblue;
+         padding: 1%;
+         margin-top: %;
+        cursor: pointer;
+           }
+    #CC{
+         z-index: 2;
+        border-radius: 20px;
+               border-style: double;
+         background-color: black;
+         color: aliceblue;
+         padding: 1%;
+         margin-top: %;
+        cursor: pointer;
+           }
+    #IC{
+         z-index: 2;
+        border-radius: 20px;
+               border-style: double;
+         background-color: black;
+         color: aliceblue;
+         padding: 1%;
+         margin-top: %;
+        cursor: pointer;
+           }
+    #AC{
+         z-index: 2;
+        border-radius: 20px;
+               border-style: double;
+         background-color: black;
+         color: aliceblue;
+         padding: 1%;
+         margin-top: %;
+        cursor: pointer;
+           }
+    #AC:hover{
+                background-color: green;
+                border-style: none;    
+           }
+    #IC:hover{
+                background-color: green;
+                border-style: none;    
+           }
+    #CC:hover{
+                background-color: green;
+                border-style: none;    
+           }
+    #SC:hover{
+                background-color: green;
+                border-style: none;    
+           }
+    #TC:hover{
+                background-color: green;
+                border-style: none;    
+           }
+    #UC:hover{
+                background-color: green;
+                border-style: none;    
+           }
+    #LC:hover{
+                background-color: green;
+                border-style: none;    
+           }
+    </style>
+    
+    </head>
+<body>
+    <div>
+   <textarea id="pop" maxlength="20"></textarea>
+       
+    </div>
+     <h1>WHAT'S ON YOUR MIND!</h1>
+    <input type="button" value="SAY YOUR MIND !" id="button">
+    <div id="case">
+        <input type="button" value="UPPER-CASE" id="UC" onclick="toUpperCase()">
+        <input type="button" value="lower-case" id="LC"  onclick="toLowerCase()">
+        <input type="button" value="Title-Case" id="TC"  onclick="toTitleCase()">
+        <input type="button" value="Sentence-case" id="SC"  onclick="toSentenceCase()">
+        <input type="button" value="Capitalized-Case" id="CC" onclick="toCapitalizedCase()">
+        <input type="button" value="iNVERSE-CASE" id="IC" onclick="toInverseCase()">
+         <input type="button" value="aLtErNaTiNg-cAsE" id="AC" onclick="toAlternatingCase()">
+    
+    
+    </div>
+    <script>
+    var image=document.getElementById("button");
+    var pop = document.getElementById("pop");
+//     var uppercase = document.getElementById("UC"); 
+        
+    image.onclick = function(){
+         if(pop.className == "open"){
+              pop.className = "";
+             image.value="SAY YOUR MIND !" ;
+         } else{
+             pop.className = "open";
+           image.value="POST YOUR MIND !";
+             image.style.backgroundColor = "blue";
+        }
+        
+    }
+   image.style.cursor="pointer";
+        
+      function toUpperCase() {
+    var text = document.getElementById("pop").value;
+//     alert(text);
+          document.getElementById("pop").value = text.toUpperCase();
+      } 
+        function toLowerCase(){
+            var text = document.getElementById("pop").value;
+            document.getElementById("pop").value = text.toLowerCase();
+        } 
+        
+        function toTitleCase(){
+                var text = document.getElementById("pop");
+                var words=text.value.toLowerCase().split(" ");
+            
+            for (i = 0; i < words.length; i++) {
+                    words[i] = words[i].charAt(0).toUpperCase() + words[i].substr(1).toLowerCase();
+            } 
+            document.getElementById("pop").value = words.join(" ");
+            
+        }
+        
+        function toSentenceCase(){
+             var text = document.getElementById("pop").value.toLowerCase();
+              document.getElementById("pop").value = text.charAt(0).toUpperCase() + text.slice(1);
+        } 
+        function toCapitalizedCase(){
+             var text = document.getElementById("pop");
+                var words=text.value.toLowerCase().split(" ");
+            for (i = 0; i < words.length; i++) {
+                     words[i] = words[i].charAt(0).toUpperCase() + words[i].substr(1).toLowerCase();
+            } document.getElementById("pop").value = words.join(" ");
+            
+        } 
+        function toInverseCase(){
+             var text = document.getElementById("pop");
+                var words=text.value.toUpperCase().split(" ");
+            for (i = 0; i < words.length; i++) {
+                     words[i] = words[i].charAt(0).toLowerCase() + words[i].substr(1).toUpperCase();
+            } document.getElementById("pop").value = words.join(" ");
+        }
+          //       here too never finish
+        function toAlternatingCase(){
+       var text = document.getElementById("pop");
+                var words=text.value.toLowerCase().split("");
+            for (var i = 0; i < words.length; i++) {
+                if( i % 2 == 0){
+                     words[i] = words[i].charAt(0).toUpperCase() + words[i].substr(1).toLowerCase();
+                    document.getElementById("pop").value = words.join("");
+                }else{document.getElementById("pop").value}
+                    
+            } 
+            
+                 
+        }
+        
+       
+</script> 
+        <script>
+      
+        
+        </script>
+    </body>
+    
+</html>
